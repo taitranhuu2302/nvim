@@ -10,9 +10,41 @@ return {
         pyright = {},
         html = {},
         tsserver = {
+					root_dir = function(...)
+						return require("lspconfig.util").root_pattern(".git")(...)
+					end,
+					single_file_support = true,
           filetypes = {
             "typescript",
             "typescriptreact",
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript.tsx"
+          },
+          settings = {
+            javascript = {
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
+              },
+            },
+            typescript = {
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
+              },
+            },
           },
         },
         eslint = {
@@ -39,26 +71,30 @@ return {
         --     "markdown",
         --   },
         -- },
-        -- emmet_ls = {
-        --   filetypes = {
-        --     "astro",
-        --     "blade",
-        --     "css",
-        --     "eruby",
-        --     "html",
-        --     "htmldjango",
-        --     "javascriptreact",
-        --     "less",
-        --     "pug",
-        --     "sass",
-        --     "scss",
-        --     "svelte",
-        --     "typescriptreact",
-        --     "vue",
-        --     "php",
-        --   },
-        -- },
-        intelephense = {},
+        emmet_ls = {
+          filetypes = {
+            "astro",
+            "blade",
+            -- "css",
+            "eruby",
+            "html",
+            "htmldjango",
+            "javascriptreact",
+            "less",
+            "pug",
+            -- "sass",
+            -- "scss",
+            "svelte",
+            "typescriptreact",
+            "vue",
+            "php",
+          },
+        },
+        intelephense = {
+          filetypes = {
+            "php"
+          }
+        },
       },
     },
   },
@@ -102,29 +138,22 @@ return {
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
   { import = "lazyvim.plugins.extras.lang.typescript" },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- @type lspconfig.options
-      servers = {
-        emmet_ls = {
-          filetypes = {
-            "astro",
-            "blade",
-            "css",
-            "eruby",
-            "html",
-            "htmldjango",
-            "javascriptreact",
-            "less",
-            "pug",
-            "sass",
-            "scss",
-            "svelte",
-            "typescriptreact",
-            "vue",
-          },
-        },
-      },
-    },
+    -- "neovim/nvim-lspconfig",
+    -- opts = function()
+    --   require("lspconfig").tsserver.setup({
+    --     init_options = {
+    --       preferences = {
+    --         disableSuggestions = true,
+    --       },
+    --     },
+    --     filetypes = {
+    --       "javascript",
+    --       "typescript",
+    --       "javascript",
+    --       "javascriptreact",
+    --       "php",
+    --     },
+    --   })
+    -- end,
   },
 }

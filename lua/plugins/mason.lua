@@ -19,7 +19,7 @@ return {
         "html-lsp",
         "intelephense",
         -- "emmet-language-server",
-        "emmet_ls",
+        "emmet-ls",
         "prettier",
         "pretty-php",
         "phpcs",
@@ -44,8 +44,8 @@ return {
           "css-lsp",
           "html-lsp",
           "intelephense",
-          -- "emmet_language_server",
-          -- "emmet_ls",
+          "emmet_language_server",
+          "emmet_ls",
           "prettier",
           "pretty-php",
           "phpcs",
@@ -58,16 +58,18 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
+    version = nil,
+    branch = "master",
     dependencies = {
       "rafamadriz/friendly-snippets",
       "Zeioth/NormalSnippets",
       "benfowler/telescope-luasnip.nvim",
     },
-    config = function(plugin, opts)
+    opts = function(plugin, opts)
+      -- friendly-snippets - enable standardized comments snippets
       require("luasnip.loaders.from_vscode").lazy_load({
         include = { "javascript", "javascriptreact", "typescriptreact", "typescript", "php" },
       })
-      -- friendly-snippets - enable standardized comments snippets
       require("luasnip").filetype_extend("typescript", { "tsdoc" })
       require("luasnip").filetype_extend("javascript", { "jsdoc" })
       require("luasnip").filetype_extend("lua", { "luadoc" })
