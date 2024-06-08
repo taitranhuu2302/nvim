@@ -317,6 +317,44 @@ return {
       })
     end,
   },
+  {
+    url = "https://codeberg.org/jthvai/lavender.nvim",
+    branch = "stable", -- versioned tags + docs updates from main
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.lavender = {
+        transparent = {
+          background = true,
+          float = true,
+          popup = true,
+          sidebar = true,
+        },
+        signs = true,
+
+        override = {
+          theme = {},
+          colors = {
+            hex = {
+              -- custom_red = "#ff3300", -- add a new colour; this can now be used in any highlight group
+            },
+            cterm = {
+              -- custom_blue = 33,
+            },
+          },
+        },
+      }
+      -- vim.cmd("colorscheme lavender")
+    end,
+  },
+  {
+    -- "LunarVim/horizon.nvim",
+    -- opts = {
+    --   colors = {
+    --     bg = "#2841a6",
+    --   },
+    -- },
+  },
   -- Setting Default
   {
     "LazyVim/LazyVim",
