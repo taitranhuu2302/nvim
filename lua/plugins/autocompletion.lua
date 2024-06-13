@@ -1,97 +1,66 @@
 return {
-  "hrsh7th/nvim-cmp",
-  version = false, -- last release is way too old
-  event = "InsertEnter",
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    -- CMD line autocompletion
-    "hrsh7th/cmp-cmdline",
-    "saadparwaiz1/cmp_luasnip",
+  {
+    "L3MON4D3/LuaSnip",
+    version = nil,
+    branch = "master",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "Zeioth/NormalSnippets",
+      "benfowler/telescope-luasnip.nvim",
+      "saadparwaiz1/cmp_luasnip",
+      {
+        "mlaursen/vim-react-snippets",
+        dependencies = "L3MON4D3/LuaSnip",
+        ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      },
+    },
+    opts = function(plugin, opts)
+      -- friendly-snippets - enable standardized comments snippets
+      -- require("luasnip.loaders.from_vscode").lazy_load({
+      --   include = {
+      --     "javascript",
+      --     "javascriptreact",
+      --     "typescriptreact",
+      --     "typescript",
+      --     "typescript.tsx",
+      --     "javascript.jsx",
+      --   },
+      -- })
+      -- require("luasnip").filetype_extend("typescript", { "tsdoc" })
+      -- require("luasnip").filetype_extend("javascript", { "jsdoc" })
+      require("luasnip").filetype_extend("lua", { "luadoc" })
+      require("luasnip").filetype_extend("python", { "pydoc" })
+      require("luasnip").filetype_extend("rust", { "rustdoc" })
+      require("luasnip").filetype_extend("cs", { "csharpdoc" })
+      require("luasnip").filetype_extend("java", { "javadoc" })
+      require("luasnip").filetype_extend("c", { "cdoc" })
+      require("luasnip").filetype_extend("cpp", { "cppdoc" })
+      require("luasnip").filetype_extend("php", { "phpdoc" })
+      require("luasnip").filetype_extend("kotlin", { "kdoc" })
+      require("luasnip").filetype_extend("ruby", { "rdoc" })
+      require("luasnip").filetype_extend("sh", { "shelldoc" })
+    end,
   },
-  opts = function()
-    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-    local cmp = require("cmp")
-    local defaults = require("cmp.config.default")()
-    -- `/` cmdline setup.
-    cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" }, -- Required
+      { "williamboman/mason.nvim" }, -- Optional
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-    -- `:` cmdline setup.
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path" },
-      }, {
-        {
-          name = "cmdline",
-          option = {
-            ignore_cmds = { "Man", "!" },
-          },
-        },
-      }),
-    })
-    return {
-      completion = {
-        completeopt = "menu,menuone,noinsert",
-      },
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      -- Suggestions
-      mapping = cmp.mapping.preset.insert({
-        -- ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        -- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<S-CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-      }),
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-      }, {
-        { name = "buffer" },
-      }),
-      formatting = {
-        format = function(_, item)
-          local icons = require("lazyvim.config").icons.kinds
-          if icons[item.kind] then
-            item.kind = icons[item.kind] .. item.kind
-          end
-          return item
-        end,
-      },
-      experimental = {
-        ghost_text = {
-          hl_group = "CmpGhostText",
-        },
-      },
-      sorting = defaults.sorting,
-    }
-  end,
-  ---@param opts cmp.ConfigSchema
-  config = function(_, opts)
-    for _, source in ipairs(opts.sources) do
-      source.group_index = source.group_index or 1
-    end
-    require("cmp").setup(opts)
-  end,
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" }, -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      { "hrsh7th/cmp-buffer" }, -- Optional
+      { "hrsh7th/cmp-path" }, -- Optional
+      { "saadparwaiz1/cmp_luasnip" }, -- Optional
+      { "hrsh7th/cmp-nvim-lua" }, -- Optional
+
+      -- Snippets
+      { "L3MON4D3/LuaSnip" }, -- Required
+      { "rafamadriz/friendly-snippets" }, -- Optional
+    },
+  },
 }
