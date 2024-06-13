@@ -27,6 +27,7 @@ return {
         "php-cs-fixer",
         "docker-compose-language-service",
         "dockerfile-language-server",
+        "yaml-language-server",
       },
     },
   },
@@ -56,6 +57,7 @@ return {
           -- "phpactor",
           "docker-compose-language-service",
           "dockerfile-language-server",
+          "yaml-language-server",
         },
       })
     end,

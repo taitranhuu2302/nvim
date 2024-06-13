@@ -48,11 +48,15 @@ return {
           },
         },
         eslint = {
-          settings = {},
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-          },
+          -- settings = {},
+          -- filetypes = {
+          --   "typescript",
+          --   "typescriptreact",
+          --   "javascript",
+          --   "javascriptreact",
+          --   "javascript.jsx",
+          --   "typescript.tsx",
+          -- },
         },
         -- emmet_language_server = {
         --   filetypes = {
@@ -95,6 +99,12 @@ return {
             "php",
           },
         },
+        yamlls = {
+          filetypes = {
+            "yaml",
+            "yml"
+          }
+        }
       },
     },
   },
