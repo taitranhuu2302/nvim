@@ -210,15 +210,15 @@ return {
   },
 
   {
-    -- "maxmx03/fluoromachine.nvim",
-    -- config = function()
-    --   local fm = require("fluoromachine")
-    --   fm.setup({
-    --     glow = false,
-    --     theme = "delta",
-    --     transparent = "full",
-    --   })
-    -- end,
+    "maxmx03/fluoromachine.nvim",
+    config = function()
+      local fm = require("fluoromachine")
+      fm.setup({
+        glow = false,
+        theme = "delta",
+        transparent = "full",
+      })
+    end,
   },
   {
     "tiagovla/tokyodark.nvim",
@@ -369,6 +369,42 @@ return {
     --   },
     -- },
   },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
+  },
+  {
+    "koalhack/koalight.nvim",
+  },
+  {
+    "xiyaowong/nvim-transparent",
+    -- opts = function()
+    --   require("transparent").setup({
+    --     extra_groups = { -- table/string: additional groups that should be cleared
+    --
+    --       --telescope.nvim
+    --       "FloatBorder",
+    --       "TelescopeNormal",
+    --
+    --       --Cmp.nvim
+    --       "Pmenu",
+    --       "Float",
+    --       "NormalFloat",
+    --
+    --       -- nvim-bufferline.lua
+    --       "BufferLineFill",
+    --       "BufferLineBackground",
+    --     },
+    --     exclude_groups = {}, -- table: groups you don't want to clear
+    --   })
+    -- end,
+  },
   -- Setting Default
   {
     "LazyVim/LazyVim",
@@ -378,6 +414,7 @@ return {
       -- colorscheme = "gruvbox-baby",
       -- colorscheme = "tokyonight",
       colorscheme = "dracula",
+      -- colorscheme = "koalight",
       -- colorscheme = "kanagawa-dragon",
       -- colorscheme = "fluoromachine",
     },
