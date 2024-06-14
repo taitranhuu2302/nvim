@@ -104,6 +104,12 @@ return {
             "yaml",
             "yml"
           }
+        },
+        docker_compose_language_service = {
+          filetypes = {
+            "yaml",
+            "yml"
+          }
         }
       },
     },
