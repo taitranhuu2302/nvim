@@ -1,5 +1,11 @@
 return {
   {
+    "hrsh7th/nvim-cmp",
+    -- TODO:
+    -- opts =
+    -- Removing TAB behaviors it's making conflicts when tab an empty space on yml files
+  },
+  {
     "L3MON4D3/LuaSnip",
     version = nil,
     branch = "master",
