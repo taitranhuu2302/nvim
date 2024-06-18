@@ -1,12 +1,16 @@
 return {
   "Wansmer/treesj",
-  keys = {
-    { "<space>m", desc = "Split code line " },
-    { "<space>j", desc = "Join code line " },
-    -- "<space>s",
-  },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  config = function()
+  opts = function()
     require("treesj").setup({})
   end,
+  keys = {
+    {
+      "<leader>j",
+      desc = "Join/Split code line",
+    },
+
+    { "<space>jm", desc = "Split code line " },
+    { "<space>jj", desc = "Join code line " },
+  },
 }
