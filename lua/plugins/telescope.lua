@@ -7,6 +7,16 @@ return {
         require("telescope").load_extension("noice")
       end)
     end,
+    keys = {
+      {
+        "<leader>sL",
+        function()
+          local builtin = require("telescope.builtin")
+          builtin.treesitter()
+        end,
+        desc = "Lists declarations",
+      },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
