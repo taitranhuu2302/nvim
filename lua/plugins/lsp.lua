@@ -5,6 +5,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
+      inlay_hints = { enabled = false },
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
@@ -23,28 +24,8 @@ return {
             "typescript.tsx",
           },
           settings = {
-            javascript = {
-              -- inlayHints = {
-              --   includeInlayEnumMemberValueHints = true,
-              --   includeInlayFunctionLikeReturnTypeHints = true,
-              --   includeInlayFunctionParameterTypeHints = true,
-              --   includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-              --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-              --   includeInlayPropertyDeclarationTypeHints = true,
-              --   includeInlayVariableTypeHints = true,
-              -- },
-            },
-            typescript = {
-              -- inlayHints = {
-              --   includeInlayEnumMemberValueHints = true,
-              --   includeInlayFunctionLikeReturnTypeHints = true,
-              --   includeInlayFunctionParameterTypeHints = true,
-              --   includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-              --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-              --   includeInlayPropertyDeclarationTypeHints = true,
-              --   includeInlayVariableTypeHints = true,
-              -- },
-            },
+            javascript = {},
+            typescript = {},
           },
         },
         eslint = {
@@ -102,15 +83,15 @@ return {
         yamlls = {
           filetypes = {
             "yaml",
-            "yml"
-          }
+            "yml",
+          },
         },
         docker_compose_language_service = {
           filetypes = {
             "yaml",
-            "yml"
-          }
-        }
+            "yml",
+          },
+        },
       },
     },
   },
