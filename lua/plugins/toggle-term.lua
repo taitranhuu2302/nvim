@@ -7,7 +7,11 @@ return {
     cmd = { "ToggleTerm" },
     keys = {
       {
-        "<leader>Tf",
+        "<leader>t",
+        desc = "ToggleTerm ",
+      },
+      {
+        "<leader>tf",
         function()
           local count = vim.v.count1
           require("toggleterm").toggle(count, 0, Util.root.get(), "float")
@@ -15,7 +19,7 @@ return {
         desc = "ToggleTerm (float root_dir)",
       },
       {
-        "<leader>Th",
+        "<leader>th",
         function()
           local count = vim.v.count1
           require("toggleterm").toggle(count, 15, Util.root.get(), "horizontal")
@@ -23,7 +27,7 @@ return {
         desc = "ToggleTerm (horizontal root_dir)",
       },
       {
-        "<leader>Tv",
+        "<leader>tv",
         function()
           local count = vim.v.count1
           require("toggleterm").toggle(count, vim.o.columns * 0.4, Util.root.get(), "vertical")
@@ -31,28 +35,44 @@ return {
         desc = "ToggleTerm (vertical root_dir)",
       },
       {
-        "<leader>Tn",
+        "<leader>tn",
         "<cmd>ToggleTermSetName<cr>",
         desc = "Set term name",
       },
       {
-        "<leader>Ts",
+        "<leader>ts",
         "<cmd>TermSelect<cr>",
         desc = "Select term",
       },
       {
-        "<leader>Tt",
+        "<leader>tt",
         function()
           require("toggleterm").toggle(1, 100, Util.root.get(), "tab")
         end,
         desc = "ToggleTerm (tab root_dir)",
       },
       {
-        "<leader>TT",
+        "<leader>tT",
         function()
           require("toggleterm").toggle(1, 100, vim.loop.cwd(), "tab")
         end,
         desc = "ToggleTerm (tab cwd_dir)",
+      },
+      {
+        "<leader>td",
+        -- "<cmd>TermExec direction='float' cmd='lazydocker'<cr>",
+        function()
+          local lazydocker = require("toggleterm.terminal").Terminal:new({
+            display_name = "lazydocker",
+            cmd = "lazydocker",
+            direction = "float",
+            -- float_opts = { highlights = { border = "Normal" } },
+            hidden = true,
+            count = 6,
+          })
+          lazydocker:toggle()
+        end,
+        desc = "Lazydocker",
       },
     },
     opts = {
