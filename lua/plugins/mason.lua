@@ -29,7 +29,7 @@ return {
         "dockerfile-language-server",
         "yaml-language-server",
         "sql-formatter",
-        "sqlls",
+        "sqls",
       },
     },
   },
@@ -61,7 +61,7 @@ return {
           "dockerfile-language-server",
           "yaml-language-server",
           "sql-formatter",
-          "sqlls",
+          "sqls",
         },
       })
     end,
