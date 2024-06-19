@@ -28,6 +28,8 @@ return {
         "docker-compose-language-service",
         "dockerfile-language-server",
         "yaml-language-server",
+        "sql-formatter",
+        "sqlls",
       },
     },
   },
@@ -58,6 +60,8 @@ return {
           "docker-compose-language-service",
           "dockerfile-language-server",
           "yaml-language-server",
+          "sql-formatter",
+          "sqlls",
         },
       })
     end,

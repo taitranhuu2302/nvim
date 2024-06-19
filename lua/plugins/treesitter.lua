@@ -35,6 +35,7 @@ return {
         "bash",
         "css",
         "php",
+        "sql"
       },
       autotag = {
         enable = true,
