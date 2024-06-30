@@ -35,7 +35,7 @@ return {
         "bash",
         "css",
         "php",
-        "sql"
+        "sql",
       },
       autotag = {
         enable = true,
@@ -56,6 +56,7 @@ return {
           "xml",
           "php",
           "markdown",
+          "markdown_inline",
           "astro",
           "glimmer",
           "handlebars",
