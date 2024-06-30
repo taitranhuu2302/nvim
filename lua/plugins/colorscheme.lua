@@ -62,13 +62,13 @@ return {
   {
     -- Gruvbox
     "sebalfaro/gruvbox-baby-nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
   },
   {
     -- Craftdog
     "craftzdog/solarized-osaka.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = function()
       return {
@@ -78,7 +78,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = function()
       return {
@@ -140,7 +140,7 @@ return {
     -- Sainhe
     "sainnhe/gruvbox-material",
     name = "gruvbox-material",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = function()
       vim.g.gruvbox_material_better_performance = 1
@@ -162,7 +162,7 @@ return {
     -- Gruvbox
     "sainnhe/gruvbox-material",
     name = "gruvbox-material",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = function()
       vim.g.gruvbox_material_better_performance = 1
@@ -183,7 +183,7 @@ return {
   {
     "diegoulloao/neofusion.nvim",
     priority = 1000,
-    config = true,
+    lazy = true,
     opts = {
       terminal_colors = true, -- add neovim terminal colors
       undercurl = true,
@@ -211,6 +211,7 @@ return {
 
   {
     "maxmx03/fluoromachine.nvim",
+    lazy = true,
     config = function()
       local fm = require("fluoromachine")
       fm.setup({
@@ -222,6 +223,7 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
+    lazy = true,
     opts = {
       transparent_background = true, -- set background to transparent
     },
@@ -232,15 +234,17 @@ return {
   },
   {
     "Tsuzat/NeoSolarized.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- vim.cmd [[ colorscheme NeoSolarized ]]
     end,
   },
+
   -- Draculareturn
   {
     "Mofiqul/dracula.nvim",
+    lazy = false,
     config = function(_, opts)
       local dracula = require("dracula")
       dracula.setup({
@@ -251,6 +255,7 @@ return {
   },
   -- {
   --   "akinsho/horizon.nvim",
+  --   lazy = true,
   --   opts = {
   --     overrides = {
   --       colors = {
@@ -259,20 +264,22 @@ return {
   --     },
   --   },
   -- },
-  -- {
-  --   "olimorris/onedarkpro.nvim",
-  --   priority = 1000, -- Ensure it loads first
-  --   config = function(_, opts)
-  --     require("onedarkpro").setup({
-  --       options = {
-  --         transparency = true,
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    "olimorris/onedarkpro.nvim",
+    lazy = true,
+    priority = 1000, -- Ensure it loads first
+    config = function(_, opts)
+      require("onedarkpro").setup({
+        options = {
+          transparency = true,
+        },
+      })
+    end,
+  },
   { "projekt0n/github-nvim-theme" },
   {
     "Everblush/nvim",
+    lazy = false,
     name = "everblush",
     opts = function()
       require("everblush").setup({
@@ -288,6 +295,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
+    lazy = false,
     opts = function()
       -- Lua
       require("onedark").setup({
@@ -371,6 +379,7 @@ return {
   },
   {
     "EdenEast/nightfox.nvim",
+    lazy = false,
     opts = function()
       require("nightfox").setup({
         options = {
@@ -381,39 +390,17 @@ return {
   },
   {
     "koalhack/koalight.nvim",
-  },
-  {
-    "xiyaowong/nvim-transparent",
-    -- opts = function()
-    --   require("transparent").setup({
-    --     extra_groups = { -- table/string: additional groups that should be cleared
-    --
-    --       --telescope.nvim
-    --       "FloatBorder",
-    --       "TelescopeNormal",
-    --
-    --       --Cmp.nvim
-    --       "Pmenu",
-    --       "Float",
-    --       "NormalFloat",
-    --
-    --       -- nvim-bufferline.lua
-    --       "BufferLineFill",
-    --       "BufferLineBackground",
-    --     },
-    --     exclude_groups = {}, -- table: groups you don't want to clear
-    --   })
-    -- end,
+    lazy = false,
   },
   -- Setting Default
   {
     "LazyVim/LazyVim",
     import = "lazyvim.plugins",
     opts = {
+      colorscheme = "dracula",
       -- colorscheme = "neofusion",
       -- colorscheme = "gruvbox-baby",
       -- colorscheme = "tokyonight",
-      colorscheme = "dracula",
       -- colorscheme = "koalight",
       -- colorscheme = "kanagawa-dragon",
       -- colorscheme = "fluoromachine",
