@@ -23,17 +23,17 @@ return {
     },
     formatters = {
       intelephense = {},
-      ["php-cs-fixer"] = {
-        command = "php-cs-fixer",
-        prepend_args = {
-          "--no-interaction",
-          "--quiet",
-          "--config=.php-cs-fixer.dist.php",
-          "fix",
-          "$FILENAME",
-        },
-        stdin = false,
-      },
+      -- ["php-cs-fixer"] = {
+      --   command = "php-cs-fixer",
+      --   prepend_args = {
+      --     "--no-interaction",
+      --     "--quiet",
+      --     "--config=.php-cs-fixer.dist.php",
+      --     "fix",
+      --     "$FILENAME",
+      --   },
+      --   stdin = false,
+      -- },
       ["pretty-php"] = {
         args = {
           "-t",
