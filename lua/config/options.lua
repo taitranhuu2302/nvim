@@ -18,8 +18,8 @@ opt.breakindent = true
 opt.linebreak = true
 -- opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 
--- Autoformat
-global.autoformat = false
-
 -- Root NeoTree
 vim.g.root_spec = { "cwd" }
+
+-- Autoformat
+vim.g.autoformat = false
