@@ -1,5 +1,11 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "MunifTanjim/nui.nvim",
+    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+  },
   opts = {
     filesystem = {
       filtered_items = {
@@ -13,14 +19,6 @@ return {
     window = {
       -- auto_expand_width = true,
       width = "20%",
-      mappins = {
-        ["c"] = {
-          "copy",
-          config = {
-            -- show_path = "relative", -- "none", "relative", "absolute"
-          },
-        },
-      },
     },
     source_selector = {
       winbar = true, -- toggle to show selector on winbar

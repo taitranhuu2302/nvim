@@ -1,11 +1,5 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    -- TODO:
-    -- opts =
-    -- Removing TAB behaviors it's making conflicts when tab an empty space on yml files
-  },
-  {
     "L3MON4D3/LuaSnip",
     version = nil,
     branch = "master",
@@ -67,6 +61,44 @@ return {
       -- Snippets
       { "L3MON4D3/LuaSnip" }, -- Required
       { "rafamadriz/friendly-snippets" }, -- Optional
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    -- TODO:
+    -- opts =
+    -- Removing TAB behaviors it's making conflicts when tab an empty space on yml files
+    keys = {
+      -- {
+      --   "<tab>",
+      --   function()
+      --     return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+      --   end,
+      --   expr = true,
+      --   silent = true,
+      --   mode = "i",
+      -- },
+      {
+        "<tab>",
+        function()
+          require("luasnip").jump(1)
+        end,
+        mode = "s",
+      },
+      {
+        "<s-tab>",
+        function()
+          require("luasnip").jump(-1)
+        end,
+        mode = { "i", "s" },
+      },
+      {
+        "<CR>",
+        function()
+          require("luasnip").mapping.confirm({ select = true })
+        end,
+        mode = { "i", "s" },
+      },
     },
   },
 }

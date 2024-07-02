@@ -4,15 +4,22 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     {
-      "<leader>A",
-      desc = "Api Rest Client",
-    },
-    {
-      "<leader>Ar",
+      "<leader>r",
       function()
         require("hyper.view").show()
       end,
-      desc = "Pop up UI",
+      desc = "Api Rest Client",
     },
+    -- {
+    --   "<leader>A",
+    --   desc = "Api Rest Client",
+    -- },
+    -- {
+    --   "<leader>Ar",
+    --   function()
+    --     require("hyper.view").show()
+    --   end,
+    --   desc = "Pop up UI",
+    -- },
   },
 }

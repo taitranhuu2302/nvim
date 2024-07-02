@@ -22,6 +22,7 @@ return {
       handlebars = { "prettier" },
     },
     formatters = {
+      prettier = {},
       intelephense = {},
       -- ["php-cs-fixer"] = {
       --   command = "php-cs-fixer",
@@ -34,14 +35,14 @@ return {
       --   },
       --   stdin = false,
       -- },
-      ["pretty-php"] = {
-        args = {
-          "-t",
-          -- "2",
-          -- "--tab 2",
-          "$FILENAME",
-        },
-      },
+      -- ["pretty-php"] = {
+      --   args = {
+      --     "-t",
+      --     -- "2",
+      --     -- "--tab 2",
+      --     "$FILENAME",
+      --   },
+      -- },
       -- ["html-lsp"] = {
       --   command = "html-lsp",
       -- }
