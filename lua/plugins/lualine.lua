@@ -41,7 +41,7 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { "filetype", icon_only = false, separator = "|", padding = { left = 1, right = 1 } },
+          { "filetype", icon_only = true, separator = "|", padding = { left = 1, right = 1 } },
           { LazyVim.lualine.pretty_path() },
         },
         lualine_x = {
@@ -91,8 +91,6 @@ return {
         lualine_y = {
           { "progress", separator = " ", padding = { left = 1, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
-        },
-        lualine_z = {
           {
             function()
               local active_clients = vim.lsp.get_clients()
@@ -108,14 +106,17 @@ return {
               if not vim.tbl_isempty(client_names) then
                 table.sort(client_names)
               end
-              return table.concat(client_names, ", ")
+              return "LSP servers: " .. table.concat(client_names, ", ")
             end,
           },
-          {
-            function()
-              return " " .. os.date("%R")
-            end,
-          },
+        },
+        lualine_z = {
+          -- { "filetype", icon_only = true, separator = "|", padding = { left = 1, right = 1 } },
+          --   {
+          --     function()
+          --       return " " .. os.date("%R")
+          --     end,
+          --   },
         },
       },
       extensions = { "neo-tree", "lazy" },
