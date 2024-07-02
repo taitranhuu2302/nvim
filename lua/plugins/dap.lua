@@ -107,6 +107,7 @@ return {
           "bash",
           "python",
           "typescript",
+          "lua"
         },
       },
     },
