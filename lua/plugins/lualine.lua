@@ -111,7 +111,6 @@ return {
           },
         },
         lualine_z = {
-          -- { "filetype", icon_only = true, separator = "|", padding = { left = 1, right = 1 } },
           --   {
           --     function()
           --       return " " .. os.date("%R")
