@@ -41,7 +41,6 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { "filetype", icon_only = true, separator = "|", padding = { left = 1, right = 1 } },
           { LazyVim.lualine.pretty_path() },
         },
         lualine_x = {
@@ -89,8 +88,18 @@ return {
           },
         },
         lualine_y = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          { "location", padding = { left = 0, right = 1 } },
+          { "progress", separator = " ", padding = { left = 1, right = 1 } },
+          -- { "location", padding = { left = 0, right = 1 } },
+        },
+        lualine_z = {
+          {
+            "filetype",
+            colored = false, -- Displays filetype icon in color if set to true
+            icon_only = true, -- Display only an icon for filetype
+            icon = { "", align = "right" },
+            separator = "|",
+            padding = { left = 1, right = 1 },
+          },
           {
             function()
               local active_clients = vim.lsp.get_clients()
@@ -106,16 +115,12 @@ return {
               if not vim.tbl_isempty(client_names) then
                 table.sort(client_names)
               end
-              return "LSP servers: " .. table.concat(client_names, ", ")
+              local clients = string.len(table.concat(client_names, ", ")) == 0 and "not found"
+                or table.concat(client_names, ", ")
+              -- return "LSP: " .. clients
+              return clients
             end,
           },
-        },
-        lualine_z = {
-          --   {
-          --     function()
-          --       return " " .. os.date("%R")
-          --     end,
-          --   },
         },
       },
       extensions = { "neo-tree", "lazy" },
