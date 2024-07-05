@@ -127,6 +127,25 @@ return {
               return clients
             end,
           },
+          {
+            function()
+              local buf = vim.api.nvim_get_current_buf()
+              local formatters = require("conform").list_formatters(buf)
+              local selected_formatters = {}
+
+              for _, formatter in ipairs(formatters) do
+                if formatter.available then
+                  table.insert(selected_formatters, formatter.name)
+                end
+              end
+
+              if #selected_formatters == 0 then
+                return "N/A"
+              else
+                return table.concat(selected_formatters, ", ")
+              end
+            end,
+          },
         },
       },
       extensions = { "neo-tree", "lazy" },
