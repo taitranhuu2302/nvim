@@ -18,6 +18,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.lang.git" },
+    { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.sql" },
+    { import = "lazyvim.plugins.extras.lang.yaml" },
+    -- { import = "lazyvim.plugins.extras.lang.php" },
     { import = "plugins" },
   },
   defaults = {
@@ -31,8 +36,8 @@ require("lazy").setup({
   },
   install = { colorscheme = {
     "dracula",
-    "tokyonight",
-    "habamax",
+    -- "tokyonight",
+    -- "habamax",
   } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
