@@ -26,7 +26,10 @@ return {
         globalstatus = vim.o.laststatus == 3,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
+
       sections = {
+
+        -- A, B, C
         lualine_a = { "mode" },
         lualine_b = { "branch" },
 
@@ -41,8 +44,11 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { LazyVim.lualine.pretty_path() },
+          { "filename" },
+          -- { LazyVim.lualine.pretty_path() },
         },
+
+        -- X, Y, Z
         lualine_x = {
           -- stylua: ignore
           {
@@ -95,7 +101,7 @@ return {
           {
             "filetype",
             colored = false, -- Displays filetype icon in color if set to true
-            icon_only = true, -- Display only an icon for filetype
+            icon_only = false, -- Display only an icon for filetype
             icon = { "", align = "right" },
             separator = "|",
             padding = { left = 1, right = 1 },
