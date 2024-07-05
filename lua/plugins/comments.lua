@@ -3,17 +3,23 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    opts = {},
   },
+  -- {
+  --   "numtostr/comment.nvim",
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   lazy = false,
+  -- },
   {
-    "numToStr/Comment.nvim",
-    opts = {
-      -- add any options here
-    },
-    lazy = false,
+    "echasnovski/mini.comment",
+    version = "*",
+    opts = function()
+      require("mini.comment").setup()
+      -- Disable comments in a new line
+      vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+      vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+    end,
   },
 }
