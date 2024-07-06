@@ -45,7 +45,6 @@ return {
             },
           },
           { "filename" },
-          -- { LazyVim.lualine.pretty_path() },
         },
 
         -- X, Y, Z
@@ -95,14 +94,13 @@ return {
         },
         lualine_y = {
           { "progress", separator = " ", padding = { left = 1, right = 1 } },
-          -- { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
           {
             "filetype",
+            icons_enabled = false,
             colored = false, -- Displays filetype icon in color if set to true
             icon_only = false, -- Display only an icon for filetype
-            icon = { "", align = "right" },
             separator = "|",
             padding = { left = 1, right = 1 },
           },
@@ -121,9 +119,8 @@ return {
               if not vim.tbl_isempty(client_names) then
                 table.sort(client_names)
               end
-              local clients = string.len(table.concat(client_names, ", ")) == 0 and "not found"
+              local clients = string.len(table.concat(client_names, ", ")) == 0 and "N/A"
                 or table.concat(client_names, ", ")
-              -- return "LSP: " .. clients
               return clients
             end,
           },
