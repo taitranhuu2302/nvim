@@ -104,6 +104,7 @@ return {
             separator = "|",
             padding = { left = 1, right = 1 },
           },
+          -- LSP Clints
           {
             function()
               local active_clients = vim.lsp.get_clients()
@@ -121,9 +122,10 @@ return {
               end
               local clients = string.len(table.concat(client_names, ", ")) == 0 and "N/A"
                 or table.concat(client_names, ", ")
-              return clients
+              return "⌨ " .. clients
             end,
           },
+          -- Formatters
           {
             function()
               local buf = vim.api.nvim_get_current_buf()
@@ -137,10 +139,21 @@ return {
               end
 
               if #selected_formatters == 0 then
-                return "N/A"
+                return "  N/A"
               else
-                return table.concat(selected_formatters, ", ")
+                return "  " .. table.concat(selected_formatters, ", ")
               end
+            end,
+          },
+          -- Linters
+          {
+            function()
+              local linters = require("lint").get_running()
+              if #linters == 0 then
+                -- return "󰦕"
+                return "󱉶  N/A"
+              end
+              return "󱉶 " .. table.concat(linters, ", ")
             end,
           },
         },
