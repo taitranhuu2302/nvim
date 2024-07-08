@@ -96,13 +96,27 @@ return {
           { "progress", separator = " ", padding = { left = 1, right = 1 } },
         },
         lualine_z = {
+          -- {
+          --   "filetype",
+          --   icons_enabled = false,
+          --   colored = false, -- Displays filetype icon in color if set to true
+          --   icon_only = false, -- Display only an icon for filetype
+          --   separator = "|",
+          --   padding = { left = 1, right = 1 },
+          -- },
           {
-            "filetype",
-            icons_enabled = false,
-            colored = false, -- Displays filetype icon in color if set to true
-            icon_only = false, -- Display only an icon for filetype
-            separator = "|",
-            padding = { left = 1, right = 1 },
+            -- Tresitter
+            function()
+              local buf = vim.api.nvim_get_current_buf()
+              local parser = vim.treesitter.get_parser(buf)
+              local language = parser:lang()
+
+              if string.len(language) == 0 then
+                return "treesitter: N/A"
+              else
+                return language
+              end
+            end,
           },
           -- LSP Clints
           {
@@ -130,6 +144,7 @@ return {
             function()
               local buf = vim.api.nvim_get_current_buf()
               local formatters = require("conform").list_formatters(buf)
+              local lsp_formatter = require("conform").will_fallback_lsp({ buf })
               local selected_formatters = {}
 
               for _, formatter in ipairs(formatters) do
@@ -138,8 +153,10 @@ return {
                 end
               end
 
-              if #selected_formatters == 0 then
+              if #selected_formatters == 0 and lsp_formatter == false then
                 return "  N/A"
+              elseif lsp_formatter == true then
+                return "  Lsp"
               else
                 return "  " .. table.concat(selected_formatters, ", ")
               end
