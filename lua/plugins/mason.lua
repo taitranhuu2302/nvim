@@ -1,6 +1,9 @@
 return {
   {
     "williamboman/mason.nvim",
+    dependency = {
+      "williamboman/mason-lspconfig.nvim",
+    },
     opts = {
       ensure_installed = {
         "stylua",
@@ -18,8 +21,7 @@ return {
         "css-lsp",
         "html-lsp",
         "intelephense",
-        -- "emmet-language-server",
-        "emmet-ls",
+        "emmet-language-server",
         "prettier",
         "pretty-php",
         "phpcs",
@@ -36,42 +38,5 @@ return {
         "markdown-toc",
       },
     },
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "tailwindcss-language-server",
-          "typescript-language-server",
-          "js-debug-adapter",
-          "eslint-lsp",
-          "eslint_d",
-          "black",
-          "debugpy",
-          "mypy",
-          "ruff",
-          "pyright",
-          "css-lsp",
-          "html-lsp",
-          "intelephense",
-          -- "emmet_language_server",
-          "emmet_ls",
-          "prettier",
-          "pretty-php",
-          "phpcs",
-          -- "phpactor",
-          "php-cs-fixer",
-          "docker-compose-language-service",
-          "dockerfile-language-server",
-          "yaml-language-server",
-          "sql-formatter",
-          "sqls",
-          "markdownlint",
-          "marksman",
-          "markdown-toc",
-        },
-      })
-    end,
   },
 }
