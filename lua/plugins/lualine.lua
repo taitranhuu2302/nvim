@@ -134,7 +134,7 @@ return {
               if not vim.tbl_isempty(client_names) then
                 table.sort(client_names)
               end
-              local clients = string.len(table.concat(client_names, ", ")) == 0 and "N/A"
+              local clients = string.len(table.concat(client_names, ", ")) == 0 and "⌨ N/A"
                 or table.concat(client_names, ", ")
               return "⌨ " .. clients
             end,
@@ -156,7 +156,7 @@ return {
               if #selected_formatters == 0 and lsp_formatter == false then
                 return "  N/A"
               elseif lsp_formatter == true then
-                return "  Lsp"
+                return "  lsp"
               else
                 return "  " .. table.concat(selected_formatters, ", ")
               end
