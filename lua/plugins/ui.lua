@@ -52,4 +52,11 @@ return {
       opts.presets.lsp_doc_border = true
     end,
   },
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      preset = "modern",
+    },
+  },
 }
