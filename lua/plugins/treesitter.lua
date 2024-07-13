@@ -6,8 +6,6 @@ return {
       -- Rainbow
       -- TODO: Check JSX
       "hiphish/rainbow-delimiters.nvim",
-      -- HTML autotag
-      "windwp/nvim-ts-autotag",
     },
     opts = {
       auto_install = true,
