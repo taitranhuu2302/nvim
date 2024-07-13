@@ -2,6 +2,7 @@ return {
   -- Adding DAP setup from LazyVim
   {
     "mfussenegger/nvim-dap",
+    lazy = true,
     recommended = true,
     desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 

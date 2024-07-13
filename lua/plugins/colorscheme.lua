@@ -379,7 +379,7 @@ return {
   },
   {
     "EdenEast/nightfox.nvim",
-    lazy = false,
+    lazy = true,
     opts = function()
       require("nightfox").setup({
         options = {
@@ -391,6 +391,13 @@ return {
   {
     "koalhack/koalight.nvim",
     lazy = false,
+  },
+  {
+    "oxfist/night-owl.nvim",
+    lazy = true,
+    opts = {
+      transparent_background = true,
+    }
   },
   -- Setting Default
   {
