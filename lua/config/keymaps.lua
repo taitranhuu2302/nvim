@@ -14,11 +14,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
--- New Tab
-keymap.set("n", "te", "tabedit", opts)
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
@@ -31,6 +26,9 @@ keymap.set("n", "sl", "<C-w>l")
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
+keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
 
 --Resize window
 -- keymap.set("n", "<C-w><left>", "<C-w><")
