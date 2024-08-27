@@ -404,7 +404,7 @@ return {
     "LazyVim/LazyVim",
     import = "lazyvim.plugins",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "onedark",
       -- colorscheme = "neofusion",
       -- colorscheme = "gruvbox-baby",
       -- colorscheme = "tokyonight",
