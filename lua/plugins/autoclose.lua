@@ -28,9 +28,9 @@ return {
         desc = "Toggle Auto Pairs",
       },
     },
-    config = function(_, opts)
-      LazyVim.mini.pairs(opts)
-    end,
+    -- config = function(_, opts)
+    --   LazyVim.mini.pairs(opts)
+    -- end,
   },
   {
     "windwp/nvim-ts-autotag",

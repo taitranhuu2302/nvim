@@ -16,16 +16,16 @@ return {
     },
     opts = function(plugin, opts)
       -- friendly-snippets - enable standardized comments snippets
-      -- require("luasnip.loaders.from_vscode").lazy_load({
-      --   include = {
-      --     "javascript",
-      --     "javascriptreact",
-      --     "typescriptreact",
-      --     "typescript",
-      --     "typescript.tsx",
-      --     "javascript.jsx",
-      --   },
-      -- })
+      require("luasnip.loaders.from_vscode").lazy_load({
+        include = {
+          "javascript",
+          "javascriptreact",
+          "typescriptreact",
+          "typescript",
+          "typescript.tsx",
+          "javascript.jsx",
+        },
+      })
       -- require("luasnip").filetype_extend("typescript", { "tsdoc" })
       -- require("luasnip").filetype_extend("javascript", { "jsdoc" })
       require("luasnip").filetype_extend("lua", { "luadoc" })

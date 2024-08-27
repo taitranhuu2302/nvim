@@ -32,7 +32,6 @@ return {
         "dockerfile-language-server",
         "yaml-language-server",
         "sql-formatter",
-        "sqls",
         "markdownlint",
         "marksman",
         "markdown-toc",
